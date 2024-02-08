@@ -1,0 +1,28 @@
+server:
+ port: 9091
+
+spring:
+  application:
+    name: Zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+zuul:
+  sensitive-headers: Cookie,Set-Cookie
+  routes:
+    lista:
+     service-id: API-Eureka-Load
+     path: /usuarios/lista
+    crear:
+     service-id: API-Eureka-Create
+     path: /usuarios/agregar
+    eliminar:
+     service-id: API-Eureka-Delete
+     path: /usuarios/eliminar/{id}
+    actualizar:
+     service-id: API-Eureka-Update
+     path: /usuarios/editar/{id}
+     
+  
